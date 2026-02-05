@@ -1,0 +1,6 @@
+{
+    "email":"ashwin",
+    "password":"pass",
+    "PersonName":"ashwin",
+    "Gender":"male"
+}
