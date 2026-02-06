@@ -2,6 +2,9 @@ using System.Text.Json.Serialization;
 using eCommerce.API.Middlewares;
 using eCommerce.Core;
 using eCommerce.Infrastructure;
+using AutoMapper;
+using Microsoft.Extensions.DependencyInjection;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,7 +19,10 @@ builder.Services.AddControllers().AddJsonOptions(opt =>
     opt.JsonSerializerOptions.Converters.Add(
         new JsonStringEnumConverter());
 });
-//builder.Services.AddAutoMapper(typeof(eCommerce.Core.Mappers.ApplicationUserMappingProfile).Assembly);
+
+     
+builder.Services.AddAutoMapper(cfg =>
+{}, typeof(eCommerce.Core.Mappers.ApplicationUserMappingProfile).Assembly);
 
 var app = builder.Build();
 
