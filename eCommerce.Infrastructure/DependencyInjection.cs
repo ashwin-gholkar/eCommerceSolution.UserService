@@ -1,4 +1,5 @@
 ﻿using eCommerce.Core.RepositoryContracts;
+using eCommerce.Infrastructure.DbContext;
 using eCommerce.Infrastructure.Repositories;
 using Microsoft.Extensions.DependencyInjection;
 using System.ComponentModel.Design;
@@ -17,6 +18,9 @@ namespace eCommerce.Infrastructure
         {
 
             services.AddSingleton<IUserRepository, UserRepository>();
+
+            services.AddTransient<DapperDBContext>();
+
             return services;
         }
     }
